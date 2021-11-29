@@ -43,19 +43,24 @@ void loop()
   lcd.setCursor(0, 1); // set the cursor to column 0, line 0 
   lcd.print("  Temp: ");// Print a message of "Temp: "to the LCD. 
   lcd.print(tempC);// Print a centigrade temperature to the LCD.  
-  lcd.print(" F  "); // Print the unit of the centigrade temperature to the LCD. 
+  lcd.print(" C  "); // Print the unit of the centigrade temperature to the LCD. 
 
   lcd.setCursor(0, 0); // set the cursor to column 0, line 0
   lcd.print("Humidity:");// Print a message of "Humidity: "to the LCD.
   lcd.print((float)DHT11.humidity, 2);// Print a message of "Humidity: "to the LCD.
   lcd.print(" % "); // Print the unit of the centigrade temperature to the LCD.
 
-  //set direction for temperature
+  //set direction for temperature 
 
   tempC = map(tempC,0,120,0,180);
   tservo.write(tempC);
   delay(15);
 
+  //tempF = (tempF * 9/5) + 32
+  //tempF = map(tempF,0,120,0,180);
+  //tservo.write(tempF);
+  //delay(15);
+ 
   //set direction for humidity
 
   float humid = map(DHT11.humidiy,0,100,0,180);
