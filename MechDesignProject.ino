@@ -58,7 +58,7 @@ void loop()
 
   //set direction for humidity
 
-  humid = map(humid,0,100,0,180);
+  float humid = map(DHT11.humidiy,0,100,0,180);
   tservo.write(humid);
   delay(15);
   
